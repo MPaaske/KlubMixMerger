@@ -37,7 +37,8 @@ public class ReadXLFile {
                     if (!sheet.getCell(0, currRow).getContents().isEmpty()) {
                         Long cprP = Long.parseLong(sheet.getCell(2, currRow).getContents().replaceAll("[-]", ""));
                         Long cprK = Long.parseLong(sheet.getCell(3, currRow).getContents().replaceAll("[-]", ""));
-                        int takst = Integer.parseInt(sheet.getCell(6, currRow).getContents());
+                        double tempTakst = Math.abs(Double.parseDouble(sheet.getCell(6, currRow).getContents().replaceAll("[,]", ".")));
+                        int takst = (int) tempTakst;
                         double friTS = Math.abs(Double.parseDouble(sheet.getCell(7, currRow).getContents().replaceAll("[,]", "."))); // had to replace , with . for it to work
                         int tPct = Integer.parseInt(sheet.getCell(8, currRow).getContents());
                         double extraPct = Math.abs(Double.parseDouble(sheet.getCell(10, currRow).getContents().replaceAll("[,]", "."))); // had to replace , with . for it to work
